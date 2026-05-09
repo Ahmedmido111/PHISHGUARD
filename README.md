@@ -99,13 +99,4 @@ phishing_web_app/
 └── reports/            # Auto-generated analytical reports
 ```
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-Feel free to check [issues page](https://github.com/Ahmedmido111/phishing_web_app/issues).
-
-## 📝 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
 
