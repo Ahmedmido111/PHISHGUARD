@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block title %}PhishGuard — Analytics{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+        <div class="text-center mb-5 hero-section">
+            <div class="d-inline-flex align-items-center justify-content-center bg-accent bg-opacity-10 text-accent rounded-circle mb-3" style="width: 80px; height: 80px;">
+                <i class="bi bi-graph-up-arrow fs-2"></i>
+            </div>
+            <h1 class="fw-800 text-gradient font-outfit display-5 mb-2">Model Analytics</h1>
+            <p class="lead text-muted fw-light">Compare detection performance across all security approaches</p>
+        </div>
+
+        {% if results %}
+        <!-- Metrics Table -->
+        <div class="card glass-panel border-0 mb-5 page-transition">
+            <div class="card-body p-4 p-md-5">
+                <h5 class="fw-semibold font-outfit mb-4 text-light">
+                    <i class="bi bi-table text-accent me-2"></i>Performance Comparison
+                </h5>
+                <div class="table-responsive rounded-3 border border-secondary border-opacity-25 overflow-hidden">
+                    <table class="table table-dark table-hover align-middle mb-0 text-center">
+                        <thead class="table-active">
+                            <tr>
+                                <th class="text-start ps-4 py-3 font-outfit text-uppercase tracking-wide small text-muted">Model</th>
+                                <th class="py-3 font-outfit text-uppercase tracking-wide small text-muted border-start border-secondary border-opacity-25">Accuracy</th>
+                                <th class="py-3 font-outfit text-uppercase tracking-wide small text-muted">Precision</th>
+                                <th class="py-3 font-outfit text-uppercase tracking-wide small text-muted">Recall</th>
+                                <th class="py-3 font-outfit text-uppercase tracking-wide small text-accent text-decoration-underline">F1-Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for r in results %}
+                            <tr class="table-row-hover transition-all">
+                                <td class="text-start ps-4 py-3 fw-bold text-light font-outfit border-0">
+                                    <i class="bi bi-layer-forward text-accent me-2 opacity-50"></i>{{ r.model }}
+                                </td>
+                                <td class="py-3 border-start border-secondary border-opacity-25 border-bottom-0"><span class="fw-mono text-light">{{ "%.2f"|format(r.accuracy * 100) }}%</span></td>
+                                <td class="py-3 border-bottom-0"><span class="fw-mono text-light">{{ "%.2f"|format(r.precision * 100) }}%</span></td>
+                                <td class="py-3 border-bottom-0"><span class="fw-mono text-light">{{ "%.2f"|format(r.recall * 100) }}%</span></td>
+                                <td class="py-3 border-bottom-0">
+                                    <span class="badge rounded-pill px-3 py-2 fw-bold font-mono fs-6 shadow-sm
+                                        {% if r.f1_score >= 0.9 %}bg-success bg-opacity-25 text-success border border-success border-opacity-50
+                                        {% elif r.f1_score >= 0.7 %}bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50
+                                        {% else %}bg-danger bg-opacity-25 text-danger border border-danger border-opacity-50{% endif %}">
+                                        {{ "%.2f"|format(r.f1_score * 100) }}%
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-6 feature-box-anim" style="animation-delay: 0.1s;">
+                <div class="card glass-panel border-0 h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h6 class="fw-bold font-outfit mb-4 text-light"><i class="bi bi-bar-chart-fill text-info me-2"></i>Accuracy & F1-Score</h6>
+                        <div class="chart-container position-relative" style="height:300px; width:100%">
+                            <canvas id="metricsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 feature-box-anim" style="animation-delay: 0.2s;">
+                <div class="card glass-panel border-0 h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h6 class="fw-bold font-outfit mb-4 text-light"><i class="bi bi-pie-chart-fill text-warning me-2"></i>Precision & Recall</h6>
+                        <div class="chart-container position-relative" style="height:300px; width:100%">
+                            <canvas id="prChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confusion Matrices -->
+        <div class="card glass-panel border-0 mb-5 feature-box-anim" style="animation-delay: 0.3s;">
+            <div class="card-body p-4 p-md-5">
+                <h5 class="fw-semibold font-outfit mb-4 text-light">
+                    <i class="bi bi-grid-3x3 me-2 text-accent"></i>Confusion Matrices
+                </h5>
+                <div class="row justify-content-center g-4">
+                    {% for r in results %}
+                    <div class="col-md-6 col-lg-5">
+                        <div class="card bg-dark bg-opacity-50 border border-secondary border-opacity-25 p-4 text-center rounded-4 shadow-sm table-row-hover transition-all">
+                            <h6 class="fw-bold font-outfit text-accent mb-3 text-uppercase tracking-wide">{{ r.model }}</h6>
+                            <div class="table-responsive rounded-3 border border-secondary border-opacity-25 overflow-hidden">
+                                <table class="table table-dark table-borderless mb-0">
+                                    <thead class="table-active border-bottom border-secondary border-opacity-25">
+                                        <tr><th class="py-2 text-muted fw-normal small">Actual \ Pred</th><th class="py-2 text-muted fw-normal small">Safe</th><th class="py-2 text-muted fw-normal small">Phish</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-semibold text-light text-start ps-3 align-middle border-end border-secondary border-opacity-25">Safe</td>
+                                            <td class="text-success fs-5 fw-bold font-mono py-3">{{ r.confusion_matrix[0][0] }}</td>
+                                            <td class="text-danger fs-5 fw-bold font-mono py-3" style="background-color: rgba(255,0,0,0.05);">{{ r.confusion_matrix[0][1] }}</td>
+                                        </tr>
+                                        <tr class="border-top border-secondary border-opacity-25">
+                                            <td class="fw-semibold text-light text-start ps-3 align-middle border-end border-secondary border-opacity-25">Phish</td>
+                                            <td class="text-danger fs-5 fw-bold font-mono py-3" style="background-color: rgba(255,0,0,0.05);">{{ r.confusion_matrix[1][0] }}</td>
+                                            <td class="text-success fs-5 fw-bold font-mono py-3">{{ r.confusion_matrix[1][1] }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Report -->
+        <div class="text-center mt-2 feature-box-anim" style="animation-delay: 0.4s;">
+            <a href="/report" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow-lg btn-hover-effect text-uppercase tracking-wide">
+                <i class="bi bi-cloud-download me-2 fs-5 align-middle"></i>
+                <span class="align-middle">Export Full PDF/Markdown Report</span>
+            </a>
+        </div>
+
+        {% else %}
+        <div class="text-center py-5 glass-panel page-transition">
+            <div class="mb-4">
+                <i class="bi bi-database-exclamation display-1 text-warning opacity-75"></i>
+            </div>
+            <h3 class="font-outfit fw-bold text-light">No evaluation data available</h3>
+            <p class="text-muted fs-5">Run <code class="bg-dark px-2 py-1 rounded text-accent border border-secondary border-opacity-50">python train.py</code> to train models and generate performance metrics.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% if results %}
+<script>
+// Chart.js global config for dark theme
+Chart.defaults.color = '#8b949e';
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.scale.grid.color = 'rgba(255, 255, 255, 0.05)';
+Chart.defaults.scale.grid.borderColor = 'rgba(255, 255, 255, 0.05)';
+
+const models = {{ results | tojson }};
+const labels = models.map(m => m.model);
+
+function createGradient(ctx, colorStart, colorEnd) {
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, colorStart);
+    gradient.addColorStop(1, colorEnd);
+    return gradient;
+}
+
+const ctxMetrics = document.getElementById('metricsChart').getContext('2d');
+new Chart(ctxMetrics, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Accuracy',
+                data: models.map(m => (m.accuracy * 100).toFixed(1)),
+                backgroundColor: createGradient(ctxMetrics, 'rgba(0, 200, 83, 0.8)', 'rgba(0, 200, 83, 0.2)'),
+                borderColor: '#00c853',
+                borderWidth: 1,
+                borderRadius: 4,
+                barPercentage: 0.6
+            },
+            {
+                label: 'F1-Score',
+                data: models.map(m => (m.f1_score * 100).toFixed(1)),
+                backgroundColor: createGradient(ctxMetrics, 'rgba(88, 166, 255, 0.8)', 'rgba(88, 166, 255, 0.2)'),
+                borderColor: '#58a6ff',
+                borderWidth: 1,
+                borderRadius: 4,
+                barPercentage: 0.6
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } },
+        plugins: { 
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { backgroundColor: 'rgba(22, 27, 34, 0.9)', titleColor: '#fff', bodyColor: '#e6edf3', bodyFont: { weight: 'bold' }, borderColor: 'rgba(88, 166, 255, 0.2)', borderWidth: 1 }
+        }
+    }
+});
+
+const ctxPR = document.getElementById('prChart').getContext('2d');
+new Chart(ctxPR, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Precision',
+                data: models.map(m => (m.precision * 100).toFixed(1)),
+                backgroundColor: createGradient(ctxPR, 'rgba(255, 152, 0, 0.8)', 'rgba(255, 152, 0, 0.2)'),
+                borderColor: '#ff9800',
+                borderWidth: 1,
+                borderRadius: 4,
+                barPercentage: 0.6
+            },
+            {
+                label: 'Recall',
+                data: models.map(m => (m.recall * 100).toFixed(1)),
+                backgroundColor: createGradient(ctxPR, 'rgba(233, 30, 99, 0.8)', 'rgba(233, 30, 99, 0.2)'),
+                borderColor: '#e91e63',
+                borderWidth: 1,
+                borderRadius: 4,
+                barPercentage: 0.6
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } },
+        plugins: { 
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { backgroundColor: 'rgba(22, 27, 34, 0.9)', titleColor: '#fff', bodyColor: '#e6edf3', bodyFont: { weight: 'bold' }, borderColor: 'rgba(88, 166, 255, 0.2)', borderWidth: 1 }
+        }
+    }
+});
+</script>
+{% endif %}
+{% endblock %}

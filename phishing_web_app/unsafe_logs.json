@@ -1,0 +1,263 @@
+[
+    {
+        "timestamp": "2026-04-28 04:31:41",
+        "subject": "Verify Your Account Immediately",
+        "sender": "security@paypaI-support.com",
+        "body_snippet": "Dear User,\r\n\r\nWe noticed suspicious activity on your account. To ensure your account security, please verify your information immediately by clicking the link below:\r\n\r\nhttp://secure-account-verification-example.com\r\n\r\nFailure to verify your account within 24 hours may result in temporary suspension...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Urgent language detected: immediately; Phishing keywords found: verify your account, dear user; Suspicious links detected: 3 link(s). Key features: \"verify\", \"account\", \"immediately\", \"temporary\", \"link url\"."
+    },
+    {
+        "timestamp": "2026-04-28 04:32:54",
+        "subject": "Verify Your Account Immediately",
+        "sender": "security@paypaI-support.com",
+        "body_snippet": "Dear User,\r\n\r\nWe noticed suspicious activity on your account. To ensure your account security, please verify your information immediately by clicking the link below:\r\n\r\nhttp://secure-account-verification-example.com\r\n\r\nFailure to verify your account within 24 hours may result in temporary suspension...",
+        "model": "Rule-Based",
+        "risk_score": 53,
+        "explanation_text": "This email is classified as **Phishing** by the Rule-Based model with a risk score of 53/100. Triggered rules: Urgent language detected: immediately; Phishing keywords found: verify your account, dear user; Suspicious links detected: 3 link(s). Key features: \"verify\", \"account\", \"immediately\", \"temporary\", \"link url\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:41:00",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:41:17",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:41:33",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:41:49",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:42:06",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:42:22",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:42:38",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:42:55",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:43:11",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:43:28",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\"."
+    },
+    {
+        "timestamp": "2026-05-01 01:43:44",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:44:01",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:44:17",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:44:34",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:44:50",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:45:06",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:45:23",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "timestamp": "2026-05-01 01:45:39",
+        "subject": "Your Account Activity Summary",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"account\", \"support\", \"activity\", \"official\".",
+        "is_viewed": true
+    },
+    {
+        "id": "21",
+        "timestamp": "2026-05-01 02:05:34",
+        "subject": "Threat Intelligence Logs",
+        "sender": "\u0627\u062d\u0645\u062f \u0645\u062d\u0645\u062f <hh1356890@gmail.com>",
+        "body_snippet": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your brow...",
+        "body": "Dear Ahmed,\r\n\r\nWe hope you are doing well.\r\n\r\nThis is a routine notification to inform you about your recent account\r\nactivity. No unusual actions have been detected.\r\n\r\nIf you would like to review your account details, please visit our official\r\nwebsite by typing the address directly into your browser:\r\n\r\nhttps://www.yourbank.com\r\n\r\nFor your security, we recommend:\r\n\r\nNever sharing your password or verification codes\r\nAlways checking the website URL before logging in\r\nContacting our support team if you notice anything unusual\r\n\r\nIf you have any questions, feel free to contact us through our official\r\nsupport channels.\r\n\r\nBest regards,\r\nCustomer Support Team\r\nYourBank",
+        "model": "Neural Network",
+        "risk_score": 95,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 95/100. Triggered rules: Sender uses free email provider (gmail.com). Key features: \"unusual\", \"support\", \"official\", \"team\", \"website\".",
+        "is_viewed": true
+    },
+    {
+        "id": "22",
+        "timestamp": "2026-05-07 00:08:19",
+        "subject": "ssss",
+        "sender": "Maryam.Adel@sut.edu.eg",
+        "body_snippet": "Dear Employee,\r\n\r\nWe detected unusual activity on your company email account during the last login attempt. To avoid temporary suspension, please verify your account immediately.\r\n\r\nVerification Link:\r\nhttp://secure-company-verification-example.com/login\r\n\r\nFailure to complete verification within 24...",
+        "body": "Dear Employee,\r\n\r\nWe detected unusual activity on your company email account during the last login attempt. To avoid temporary suspension, please verify your account immediately.\r\n\r\nVerification Link:\r\nhttp://secure-company-verification-example.com/login\r\n\r\nFailure to complete verification within 24 hours may result in limited email access.\r\n\r\nThank you,\r\nIT Support Team",
+        "model": "Neural Network",
+        "risk_score": 97,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 97/100. Triggered rules: Urgent language detected: immediately; Phishing keywords found: verify your account, unusual activity; Suspicious links detected: 1 link(s). Key features: \"verification\", \"account\", \"temporary\", \"unusual\", \"login\".",
+        "is_viewed": false
+    },
+    {
+        "id": "23",
+        "timestamp": "2026-05-07 00:09:09",
+        "subject": "ss",
+        "sender": "Maryam.Adel@sut.edu.eg",
+        "body_snippet": "Dear Employee,\r\n\r\nWe detected unusual activity on your company email account during the last login attempt. To avoid temporary suspension, please verify your account immediately.\r\n\r\nVerification Link:\r\nhttp://secure-company-verification-example.com/login\r\n\r\nFailure to complete verification within 24...",
+        "body": "Dear Employee,\r\n\r\nWe detected unusual activity on your company email account during the last login attempt. To avoid temporary suspension, please verify your account immediately.\r\n\r\nVerification Link:\r\nhttp://secure-company-verification-example.com/login\r\n\r\nFailure to complete verification within 24 hours may result in limited email access.\r\n\r\nThank you,\r\nIT Support Team",
+        "model": "Rule-Based",
+        "risk_score": 43,
+        "explanation_text": "This email is classified as **Phishing** by the Rule-Based model with a risk score of 43/100. Triggered rules: Urgent language detected: immediately; Phishing keywords found: verify your account, unusual activity; Suspicious links detected: 1 link(s). Key features: \"verification\", \"account\", \"temporary\", \"unusual\", \"login\".",
+        "is_viewed": false
+    },
+    {
+        "id": "24",
+        "timestamp": "2026-05-07 00:09:52",
+        "subject": "ss",
+        "sender": "Maryam.Adel@sut.edu.eg",
+        "body_snippet": ",\r\n\r\nDue to a recent payroll system migration, all employees must confirm their banking information before the next salary cycle.\r\n\r\nPlease download and complete the attached form immediately:\r\n\"Payroll_Update_Form.zip\"\r\n\r\nIf the form is not submitted today, your salary payment may be delayed.\r\n\r\nBe...",
+        "body": ",\r\n\r\nDue to a recent payroll system migration, all employees must confirm their banking information before the next salary cycle.\r\n\r\nPlease download and complete the attached form immediately:\r\n\"Payroll_Update_Form.zip\"\r\n\r\nIf the form is not submitted today, your salary payment may be delayed.\r\n\r\nBest regards,\r\nHR Department",
+        "model": "Neural Network",
+        "risk_score": 53,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 53/100. Triggered rules: Urgent language detected: immediately. Key features: \"salary\", \"form\", \"cycle\", \"banking\", \"hr\".",
+        "is_viewed": false
+    },
+    {
+        "id": "25",
+        "timestamp": "2026-05-07 00:10:35",
+        "subject": "ss",
+        "sender": "Maryam.Adel@sut.edu.eg",
+        "body_snippet": "\u0639\u0632\u064a\u0632\u064a \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u060c\r\n\r\n\u062a\u0645 \u0631\u0635\u062f \u0645\u062d\u0627\u0648\u0644\u0629 \u062a\u0633\u062c\u064a\u0644 \u062f\u062e\u0648\u0644 \u063a\u064a\u0631 \u0645\u0639\u062a\u0627\u062f\u0629 \u0625\u0644\u0649 \u062d\u0633\u0627\u0628 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0627\u0644\u062e\u0627\u0635 \u0628\u0643\u060c \u0648\u0644\u0630\u0644\u0643 \u0646\u0637\u0644\u0628 \u0645\u0646\u0643 \u062a\u0623\u0643\u064a\u062f \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062d\u0633\u0627\u0628 \u0644\u062a\u062c\u0646\u0628 \u0625\u064a\u0642\u0627\u0641\u0647 \u0645\u0624\u0642\u062a\u064b\u0627.\r\n\r\n\u064a\u0631\u062c\u0649 \u0627\u0644\u0636\u063a\u0637 \u0639\u0644\u0649 \u0627\u0644\u0631\u0627\u0628\u0637 \u0627\u0644\u062a\u0627\u0644\u064a \u0644\u0625\u062a\u0645\u0627\u0645 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062a\u062d\u0642\u0642:\r\n\r\nhttp://secure-mail-verification-example.com\r\n\r\n\u0641\u064a \u062d\u0627\u0644 \u0639\u062f\u0645 \u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u062a\u062d\u0642\u0642 \u062e\u0644\u0627\u0644 24 \u0633\u0627\u0639\u0629\u060c \u0642\u062f \u064a\u062a\u0645 \u062a\u0639\u0644\u064a...",
+        "body": "\u0639\u0632\u064a\u0632\u064a \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u060c\r\n\r\n\u062a\u0645 \u0631\u0635\u062f \u0645\u062d\u0627\u0648\u0644\u0629 \u062a\u0633\u062c\u064a\u0644 \u062f\u062e\u0648\u0644 \u063a\u064a\u0631 \u0645\u0639\u062a\u0627\u062f\u0629 \u0625\u0644\u0649 \u062d\u0633\u0627\u0628 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0627\u0644\u062e\u0627\u0635 \u0628\u0643\u060c \u0648\u0644\u0630\u0644\u0643 \u0646\u0637\u0644\u0628 \u0645\u0646\u0643 \u062a\u0623\u0643\u064a\u062f \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062d\u0633\u0627\u0628 \u0644\u062a\u062c\u0646\u0628 \u0625\u064a\u0642\u0627\u0641\u0647 \u0645\u0624\u0642\u062a\u064b\u0627.\r\n\r\n\u064a\u0631\u062c\u0649 \u0627\u0644\u0636\u063a\u0637 \u0639\u0644\u0649 \u0627\u0644\u0631\u0627\u0628\u0637 \u0627\u0644\u062a\u0627\u0644\u064a \u0644\u0625\u062a\u0645\u0627\u0645 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u062a\u062d\u0642\u0642:\r\n\r\nhttp://secure-mail-verification-example.com\r\n\r\n\u0641\u064a \u062d\u0627\u0644 \u0639\u062f\u0645 \u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u062a\u062d\u0642\u0642 \u062e\u0644\u0627\u0644 24 \u0633\u0627\u0639\u0629\u060c \u0642\u062f \u064a\u062a\u0645 \u062a\u0639\u0644\u064a\u0642 \u0627\u0644\u0648\u0635\u0648\u0644 \u0625\u0644\u0649 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a.\r\n\r\n\u0645\u0639 \u062a\u062d\u064a\u0627\u062a\u060c\r\n\u0642\u0633\u0645 \u0627\u0644\u062f\u0639\u0645 \u0627\u0644\u0641\u0646\u064a",
+        "model": "Neural Network",
+        "risk_score": 98,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 98/100. Triggered rules: Urgent language detected: \u062e\u0644\u0627\u0644 24 \u0633\u0627\u0639\u0629; Suspicious links detected: 1 link(s). Key features: \"\u0625\u0644\u0649\", \"\u0645\u0639\", \"\u0639\u0644\u0649\", \"\u0641\u064a\", \"24\".",
+        "is_viewed": false
+    },
+    {
+        "id": "26",
+        "timestamp": "2026-05-07 00:18:32",
+        "subject": "hi",
+        "sender": "Ahmed mohamed mohamed Abdallah <ahmed230100126@sut.edu.eg>",
+        "body_snippet": "Dear Employee,\r\n\r\nWe detected unusual activity on your company email account during the last login attempt. To avoid temporary suspension, please verify your account immediately.\r\n\r\nVerification Link:\r\nhttp://secure-company-verification-example.com/login\r\n\r\nFailure to complete verification within 24...",
+        "body": "Dear Employee,\r\n\r\nWe detected unusual activity on your company email account during the last login attempt. To avoid temporary suspension, please verify your account immediately.\r\n\r\nVerification Link:\r\nhttp://secure-company-verification-example.com/login\r\n\r\nFailure to complete verification within 24 hours may result in limited email access.\r\n\r\nThank you,\r\nIT Support Team",
+        "model": "Neural Network",
+        "risk_score": 97,
+        "explanation_text": "This email is classified as **Phishing** by the Neural Network model with a risk score of 97/100. Triggered rules: Urgent language detected: immediately; Phishing keywords found: verify your account, unusual activity; Suspicious links detected: 1 link(s). Key features: \"verification\", \"account\", \"temporary\", \"unusual\", \"login\".",
+        "is_viewed": true
+    }
+]

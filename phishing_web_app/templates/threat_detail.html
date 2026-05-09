@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Threat Detail — {{ log.subject }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="d-flex align-items-center mb-4 mt-2">
+            <a href="{{ url_for('main.threats') }}" class="btn glass-btn border border-secondary border-opacity-50 rounded-circle me-4 py-2 px-3 shadow-sm hover-glow text-light" style="backdrop-filter: blur(5px);">
+                <i class="bi bi-arrow-left mt-1 fs-5"></i>
+            </a>
+            <h2 class="fw-800 text-danger font-outfit mb-0 align-middle">Analysis Details</h2>
+        </div>
+
+        <div class="card glass-panel border border-danger border-opacity-50 mb-4 page-transition shadow-lg" style="animation-delay: 0.1s;">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-md-center flex-column flex-md-row border-bottom border-danger border-opacity-25 pb-4 mb-4 gap-3">
+                    <h3 class="font-outfit fw-bold text-light mb-0" style="word-break: break-word;">{{ log.subject }}</h3>
+                    <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-50 px-3 py-2 rounded-pill fs-6 font-mono align-self-md-start">
+                        <i class="bi bi-fire me-2"></i>Risk: {{ log.risk_score }}%
+                    </span>
+                </div>
+
+                <div class="row mb-5 g-4">
+                    <div class="col-md-6">
+                        <div class="text-muted small text-uppercase fw-bold mb-2 tracking-wide text-opacity-75">Sender</div>
+                        <div class="text-light fs-5 word-break-all"><i class="bi bi-person-badge text-info me-2 opacity-75"></i>{{ log.sender }}</div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="text-muted small text-uppercase fw-bold mb-2 tracking-wide text-opacity-75">Detected Time</div>
+                        <div class="text-light font-mono"><i class="bi bi-clock-history text-info me-2 opacity-75"></i>{{ log.timestamp }}</div>
+                    </div>
+                </div>
+
+                <div class="bg-dark bg-opacity-50 rounded-4 p-4 p-md-5 border border-secondary border-opacity-25 shadow-sm position-relative overflow-hidden mb-5 group">
+                    <div class="position-absolute top-0 start-0 w-2 ms-0 h-100 bg-info opacity-75"></div>
+                    <h5 class="text-info font-outfit mb-3 ms-2 fw-semibold"><i class="bi bi-robot me-2"></i>Model Conclusion ({{ log.model }})</h5>
+                    <p class="text-light opacity-90 fs-5 lh-base mb-0 ms-2 font-outfit" style="font-weight: 300;">
+                        {{ log.explanation_text }}
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center mb-3 text-light font-outfit fw-bold">
+                    <i class="bi bi-envelope-open text-muted opacity-50 me-2 fs-5"></i>
+                    <h5 class="mb-0">Original Email Content</h5>
+                </div>
+                
+                <div class="bg-black bg-opacity-50 rounded-3 p-4 border border-secondary border-opacity-10 shadow-inner" style="white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; color: #a9bcc9; font-size: 0.95rem; line-height: 1.6; max-height: 600px; overflow-y: auto;">{{ log.body if log.body else log.body_snippet }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phishing Email Detector — AI-powered email security analysis">
+    <title>{% block title %}Phishing Email Detector{% endblock %}</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Background animations -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-shield-lock-fill me-2 text-accent fs-3 align-middle"></i>
+                <span class="fs-4 align-middle font-outfit">PhishGuard</span>
+            </a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="/"><i class="bi bi-house-door me-1 text-accent"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="/analytics"><i class="bi bi-bar-chart me-1 text-accent"></i>Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="/threats"><i class="bi bi-shield-exclamation text-danger mx-1"></i>Threat Logs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="/report"><i class="bi bi-file-earmark-text me-1 text-accent"></i>Report</a>
+                    </li>
+                </ul>
+                
+                <!-- Live Inbox Stats Widget -->
+                <div class="d-none ms-lg-4 mt-3 mt-lg-0 stats-widget align-items-center" id="inbox-stats-widget">
+                    <div class="d-flex align-items-center text-light bg-dark-subtle rounded-pill px-3 py-1 border border-secondary border-opacity-50 shadow-sm me-2">
+                        <div class="spinner-grow spinner-grow-sm text-accent me-2" role="status" style="width: 0.8rem; height: 0.8rem;">
+                            <span class="visually-hidden">Monitoring...</span>
+                        </div>
+                        <span class="small fw-semibold me-3">Live Monitoring</span>
+                        
+                        <div class="d-flex gap-3 text-nowrap">
+                            <span title="Total Analyzed">
+                                <i class="bi bi-envelope-check text-info me-1"></i><span id="stat-analyzed" class="fw-bold fw-mono">0</span>
+                            </span>
+                            <span title="Safe Emails">
+                                <i class="bi bi-shield-check text-success me-1"></i><span id="stat-safe" class="fw-bold fw-mono">0</span>
+                            </span>
+                            <span title="Phishing Detected">
+                                <i class="bi bi-shield-exclamation text-danger me-1"></i><span id="stat-phishing" class="fw-bold fw-mono">0</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash messages -->
+    <div class="container mt-4 position-relative z-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-glass alert-dismissible fade show shadow-sm" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main content -->
+    <main class="container py-4 position-relative z-2">
+        <div class="page-transition">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-auto text-muted position-relative z-2">
+        <div class="container border-top border-secondary border-opacity-25 pt-4">
+            <small class="fw-medium font-outfit">PhishGuard &copy; 2026 — Defensive Cybersecurity Tool &bull; For detection &amp; awareness only</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Inbox stats live update
+        function fetchStats() {
+            fetch('/inbox-stats')
+                .then(res => res.json())
+                .then(data => {
+                    const widget = document.getElementById('inbox-stats-widget');
+                    if (data.running) {
+                        widget.classList.remove('d-none');
+                        widget.classList.add('d-flex');
+                        
+                        // Animate numbers if they changed
+                        updateNumber('stat-analyzed', data.analyzed);
+                        updateNumber('stat-safe', data.safe);
+                        updateNumber('stat-phishing', data.phishing);
+                    } else {
+                        widget.classList.add('d-none');
+                        widget.classList.remove('d-flex');
+                    }
+                })
+                .catch(err => console.error('Stats fetch error:', err));
+        }
+
+        function updateNumber(elementId, newValue) {
+            const el = document.getElementById(elementId);
+            if (el.innerText != newValue) {
+                el.innerText = newValue;
+                el.classList.add('num-pop');
+                setTimeout(() => el.classList.remove('num-pop'), 300);
+            }
+        }
+
+        fetchStats();
+        setInterval(fetchStats, 5000); // Check every 5 seconds
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

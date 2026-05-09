@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}PhishGuard — Threat Logs{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+        <!-- Hero section -->
+        <div class="text-center mb-5 hero-section page-transition">
+            <div class="d-inline-flex align-items-center justify-content-center bg-danger bg-opacity-10 text-danger rounded-circle mb-3" style="width: 80px; height: 80px;">
+                <i class="bi bi-shield-exclamation fs-1"></i>
+            </div>
+            <h1 class="fw-800 text-danger font-outfit display-5 mb-2 glow-text-danger">Threat Intelligence Logs</h1>
+            <p class="lead text-muted fw-light">A historical record of all emails detected and classified as phishing attempts.</p>
+        </div>
+
+        {% if logs %}
+        <div class="row g-4">
+            {% for log in logs %}
+            <div class="col-md-6 col-lg-4 feature-box-anim" style="animation-delay: {{ loop.index0 * 0.1 }}s;">
+                <a href="{{ url_for('main.threat_detail', log_id=log.id) }}" class="text-decoration-none text-light w-100">
+                    <div class="card glass-panel border border-danger border-opacity-25 h-100 overflow-hidden position-relative group transition-all table-row-hover">
+                        <!-- Subtle background glow -->
+                        <div class="position-absolute opacity-10 bg-danger blur-xl rounded-circle" style="width: 150px; height: 150px; top: -50px; right: -50px; pointer-events: none;"></div>
+                        
+                        <div class="card-body p-4 d-flex flex-column z-1">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-50 px-2 py-1 rounded-pill small fw-semibold font-mono">
+                                    <i class="bi bi-fire me-1"></i>Risk: {{ log.risk_score }}%
+                                </span>
+                                {% if not log.is_viewed %}
+                                <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 px-2 py-1 rounded-pill small fw-semibold">
+                                    <i class="bi bi-asterisk"></i> New
+                                </span>
+                                {% endif %}
+                                <span class="text-muted small fw-mono opacity-75 ms-auto"><i class="bi bi-clock me-1"></i>{{ log.timestamp }}</span>
+                            </div>
+                            
+                            <h5 class="fw-bold text-light font-outfit mb-2 text-truncate" title="{{ log.subject }}">
+                                {{ log.subject or "No Subject" }}
+                            </h5>
+                            <p class="text-muted small mb-3 text-truncate"><i class="bi bi-person me-1"></i>{{ log.sender or "Unknown Sender" }}</p>
+
+                            <div class="bg-dark bg-opacity-50 p-2 rounded-3 border border-secondary border-opacity-25 mb-4 flex-grow-1" style="min-height: 80px;">
+                                <p class="small text-light opacity-75 mb-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                                    {{ log.body_snippet }}
+                                </p>
+                            </div>
+
+                            <div class="mt-auto pt-3 border-top border-secondary border-opacity-25">
+                                <p class="small mb-0 text-info fw-medium font-outfit">
+                                    <i class="bi bi-robot me-1"></i>{{ log.explanation_text | truncate(100) }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5 glass-panel page-transition">
+            <div class="mb-4">
+                <i class="bi bi-shield-check display-1 text-success opacity-75"></i>
+            </div>
+            <h3 class="font-outfit fw-bold text-light">No Threats Detected</h3>
+            <p class="text-muted fs-5">All clear! Our models haven't picked up any phishing emails yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{
+    "EMAIL_ACCOUNT": "ADD Your Email",
+    "APP_PASSWORD": "ADD Your Password",
+    "IMAP_SERVER": "imap.gmail.com",
+    "IMAP_PORT": 993,
+    "PREFERRED_MODEL": "Neural Network",
+    "POLL_INTERVAL_SECONDS": 15,
+    "MONITORED_FOLDERS": [
+        "INBOX",
+        "[Gmail]/Spam"
+    ]
+}

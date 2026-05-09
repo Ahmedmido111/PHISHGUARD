@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block title %}PhishGuard — Analyze Email{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
+        <!-- Hero -->
+        <div class="text-center mb-5 hero-section">
+            <div class="shield-icon-container mb-4 position-relative mx-auto" style="width: 100px; height: 100px;">
+                <div class="shield-pulse"></div>
+                <div class="shield-icon shadow-lg bg-gradient-primary border border-primary border-opacity-50">
+                    <i class="bi bi-shield-check fs-1 text-white"></i>
+                </div>
+            </div>
+            <h1 class="fw-800 text-gradient display-5 font-outfit mb-3">Phishing Email Detector</h1>
+            <p class="lead text-muted fw-light">Detect suspicious emails instantly with advanced AI and Rule-Based models.</p>
+        </div>
+
+        <!-- File Drop Zone -->
+        <div class="mb-4 glass-panel drop-zone-anim" id="drop-zone">
+            <div class="drop-content py-4 text-center">
+                <i class="bi bi-cloud-arrow-up display-4 text-accent mb-3 drop-icon-anim" id="drop-icon"></i>
+                <h5 class="fw-semibold text-light font-outfit mb-1" id="drop-text">Drag & Drop an Email File (.eml / .txt)</h5>
+                <p class="text-muted small mb-0 fw-medium" id="drop-sub">Or click anywhere in this box to browse files</p>
+                <input type="file" id="file-input" accept=".eml,.txt" class="d-none">
+            </div>
+        </div>
+
+        <!-- Input Form -->
+        <div class="card glass-card shadow-lg border-0 mb-5">
+            <div class="card-body p-4 p-md-5">
+                <form action="/analyze" method="POST" id="analyzeForm">
+                    <!-- Subject -->
+                    <div class="mb-4 form-group-anim">
+                        <label for="subject" class="form-label fw-semibold text-light small text-uppercase tracking-wide">
+                            <i class="bi bi-chat-left-text text-accent me-2"></i>Email Subject
+                        </label>
+                        <input type="text" class="form-control form-control-lg glass-input" id="subject" name="subject"
+                               placeholder="e.g. Urgent: Verify Your Account Now">
+                    </div>
+
+                    <!-- Body -->
+                    <div class="mb-4 form-group-anim" style="animation-delay: 0.1s;">
+                        <label for="body" class="form-label fw-semibold text-light small text-uppercase tracking-wide">
+                            <i class="bi bi-body-text text-accent me-2"></i>Email Body <span class="text-danger">*</span>
+                        </label>
+                        <textarea class="form-control glass-input" id="body" name="body" rows="6" required
+                                  placeholder="Paste the full email body here..."></textarea>
+                    </div>
+
+                    <!-- Sender -->
+                    <div class="mb-4 form-group-anim" style="animation-delay: 0.2s;">
+                        <label for="sender" class="form-label fw-semibold text-light small text-uppercase tracking-wide">
+                            <i class="bi bi-person text-accent me-2"></i>Sender / Domain <small class="text-muted text-lowercase">(optional)</small>
+                        </label>
+                        <input type="text" class="form-control form-control-lg glass-input" id="sender" name="sender"
+                               placeholder="e.g. support@suspicious-bank123.com">
+                    </div>
+
+                    <!-- Model Selection -->
+                    <div class="mb-5 form-group-anim" style="animation-delay: 0.3s;">
+                        <label for="model" class="form-label fw-semibold text-light small text-uppercase tracking-wide">
+                            <i class="bi bi-cpu text-accent me-2"></i>Detection Model
+                        </label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text glass-input border-end-0 bg-transparent text-muted">
+                                <i class="bi bi-braces-asterisk"></i>
+                            </span>
+                            <select class="form-select glass-input border-start-0 ps-0 form-control-lg fw-medium" id="model" name="model">
+                                {% for m in models %}
+                                <option value="{{ m }}" class="bg-dark text-light">{{ m }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="text-center mt-2 form-group-anim" style="animation-delay: 0.4s;">
+                        <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-bold text-uppercase tracking-wide py-3 px-4 shadow btn-hover-effect" id="submitBtn">
+                            <i class="bi bi-shield-check me-2 fs-5 align-middle"></i>
+                            <span class="align-middle">Analyze Email Security</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Feature cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 feature-box-anim" style="animation-delay: 0.5s;">
+                <div class="card glass-panel h-100 p-4 border-0 feature-card text-center overflow-hidden position-relative group">
+                    <div class="feature-bg-blob bg-info position-absolute opacity-10 blur-xl rounded-circle" style="width: 100px; height: 100px; top: -20px; right: -20px;"></div>
+                    <i class="bi bi-diagram-2 fs-1 text-info mb-3 d-inline-block"></i>
+                    <h5 class="fw-bold font-outfit text-white mb-2">Rule-Based Analysis</h5>
+                    <p class="text-muted small mb-0">Fast, pattern-matching detection using established phishing rules and keyword heuristics.</p>
+                </div>
+            </div>
+            <div class="col-md-6 feature-box-anim" style="animation-delay: 0.6s;">
+                <div class="card glass-panel h-100 p-4 border-0 feature-card text-center overflow-hidden position-relative group">
+                    <div class="feature-bg-blob bg-accent position-absolute opacity-10 blur-xl rounded-circle" style="width: 100px; height: 100px; top: -20px; right: -20px;"></div>
+                    <i class="bi bi-cpu fs-1 text-accent mb-3 d-inline-block"></i>
+                    <h5 class="fw-bold font-outfit text-white mb-2">Neural Network</h5>
+                    <p class="text-muted small mb-0">Deep learning classification leveraging context and text sequences for advanced detection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.getElementById('analyzeForm').addEventListener('submit', function() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-grow spinner-grow-sm me-2 align-middle" role="status"></span><span class="align-middle">Analyzing Data...</span>';
+    btn.classList.add('opacity-75');
+});
+
+// Drag and drop JS
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('click', () => fileInput.click());
+
+['dragover', 'dragleave', 'drop'].forEach(evt => {
+    dropZone.addEventListener(evt, e => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+});
+
+dropZone.addEventListener('dragover', () => {
+    dropZone.classList.add('drop-zone-active');
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('drop-zone-active');
+});
+
+const handleFile = (file) => {
+    dropZone.classList.remove('drop-zone-active');
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const text = e.target.result;
+        
+        // Basic EML Parsing via Regex
+        const subjectMatch = text.match(/^Subject:\s*([^\r\n]*)/mi);
+        const fromMatch = text.match(/^From:\s*([^\r\n]*)/mi);
+        
+        if (subjectMatch) document.getElementById('subject').value = subjectMatch[1];
+        if (fromMatch) document.getElementById('sender').value = fromMatch[1];
+        
+        // Split header block from body block based on double newline
+        let parts = text.split(/\r?\n\r?\n/);
+        let bodyText = parts.length > 1 ? parts.slice(1).join('\n\n') : text;
+        
+        document.getElementById('body').value = bodyText.trim();
+        
+        // Visual feedback
+        const icon = document.getElementById('drop-icon');
+        icon.className = "bi bi-check2-circle display-4 text-success mb-3";
+        // Animate the icon
+        icon.animate([
+            { transform: 'scale(0.8)', opacity: 0 },
+            { transform: 'scale(1.1)', opacity: 1 },
+            { transform: 'scale(1)' }
+        ], { duration: 400, easing: 'ease-out' });
+
+        document.getElementById('drop-text').className = "fw-bold text-success font-outfit mb-1";
+        document.getElementById('drop-text').innerText = "Loaded: " + file.name;
+        document.getElementById('drop-sub').innerText = "Data extracted. Review and analyze.";
+        
+        // Add a subtle border glow
+        dropZone.style.borderColor = 'var(--bs-success)';
+        dropZone.style.backgroundColor = 'rgba(25, 135, 84, 0.05)';
+    };
+    reader.readAsText(file);
+};
+
+dropZone.addEventListener('drop', (e) => {
+    handleFile(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener('change', (e) => {
+    handleFile(e.target.files[0]);
+});
+</script>
+{% endblock %}
