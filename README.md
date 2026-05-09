@@ -102,7 +102,7 @@ phishing_web_app/
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check [issues page](https://github.com/yourusername/phishing_web_app/issues).
+Feel free to check [issues page](https://github.com/Ahmedmido111/phishing_web_app/issues).
 
 ## 📝 License
 
